@@ -1,0 +1,80 @@
+[
+	{
+		"ISBN" : "",
+		"ISSN" : "2178-6097",
+		"city" : "Brasília",
+		"country" : "Brasil",
+		"days" : "29",
+		"editor" : "André Luiz de Castro Leal, Marília Guterres Ferreira, Julio Cesar Sampaio do Prado Leite",
+		"id" : 1,
+		"month" : "Setembro",
+		"name_conference" : "WTRANS13",
+		"url" : "wtrans.inf.puc-rio.br/wtrans13",
+		"year" : "2013"
+	},
+	{
+		"ISBN" : "",
+		"ISSN" : "",
+		"city" : "Londrina",
+		"country" : "2014",
+		"days" : "28",
+		"editor" : "Julio Cesar Sampaio do Prado Leite, Eduardo Kinder Almentero",
+		"id" : 2,
+		"month" : "Maio",
+		"name_conference" : "WTRANS14",
+		"url" : "wtrans.inf.puc-rio.br/wtrans14",
+		"year" : "2014"
+	},
+	{
+		"ISBN" : "",
+		"ISSN" : "",
+		"city" : "Manaus",
+		"country" : "Brasil",
+		"days" : "15",
+		"editor" : "Vanessa Tavares Nunes, Claudia Cappelli, André Luiz de Castro Leal and Julio Cesar Sampaio do Prado Leite",
+		"id" : 18,
+		"month" : "Agosto",
+		"name_conference" : "WTRANS15",
+		"url" : "wtrans.inf.puc-rio.br/wtrans15",
+		"year" : "2015"
+	},
+	{
+		"ISBN" : "",
+		"ISSN" : "",
+		"city" : "Rio de Janeiro - RJ",
+		"country" : "Brasil",
+		"days" : "29",
+		"editor" : "Julio Cesar Sampaio do Prado Leite, Priscila Engiel, Claudia Cappelli Aló, Vanessa Nunes ",
+		"id" : 19,
+		"month" : "Novembro",
+		"name_conference" : "WTRANS16",
+		"url" : "wtrans.inf.puc-rio.br/wtrans16",
+		"year" : "2016"
+	},
+	{
+		"ISBN" : "",
+		"ISSN" : "",
+		"city" : "São Paulo",
+		"country" : "Brasil",
+		"days" : "3",
+		"editor" : "Claudia Cappelli - UNIRIO, Vanessa Nunes - UnB, Ilana de Almeida Concilio - Mackenzie",
+		"id" : 20,
+		"month" : "Julho",
+		"name_conference" : "WTRANS17",
+		"url" : "wtrans.inf.puc-rio.br/wtrans17",
+		"year" : "2017"
+	},
+	{
+		"ISBN" : "",
+		"ISSN" : "2595-6140",
+		"city" : "Natal",
+		"country" : "Brasil",
+		"days" : "22",
+		"editor" : "Vanessa Nunes - UnB, Brunna Diirr - UNIRIO, Sebastião Emidio - UERN",
+		"id" : 22,
+		"month" : "Julho",
+		"name_conference" : "WTRANS18",
+		"url" : "wtrans.inf.puc-rio.br/wtrans18",
+		"year" : "2018"
+	}
+]
