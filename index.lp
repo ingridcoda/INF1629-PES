@@ -67,15 +67,18 @@
 				  
                 -- list all wtrans conferences using dao to access the database
                 conferences = dao.get_conferences_json()
+                confs = {"WTRANS13", "WTRANS14", "WTRANS15", "WTRANS16", "WTRANS17", "WTRANS18"}
                 if conferences == nil then 
                   cgilua.print('<p>NULO</p>') 
                 else
-                  for k,v in pairs(conferences) do
+                  i = 0
+                  for k,v in pairs(conferences) do                   
                     if string.match(v, "name_conference") then
+                      i = i + 1
                       v = string.gsub (v, '"name_conference" : "', '', 1)
                       v = string.gsub (v, '",', '', 1)
                       cgilua.print('<a href='..cfg.file_conference_home..
-                                    '?conference='..v..'>'..v
+                                    '?conference='..confs[i]..'>'..v
                                     ..'</a>&nbsp;&nbsp;\n')
                     end
                   end                  

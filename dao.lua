@@ -82,21 +82,42 @@ function object_from(file)
     return {}
   end
   objects = {}
-  for obj in io.lines(file) do
-    local o = nil
-    if not string.match(obj, "}") and not string.match(obj, "%[") and not string.match(obj, "%]") then
-      o = o..obj
-    else if string.match(obj, "}") then
-      o = o..obj
-      objects.push(o)
-      o = nil
-    else
-      o = o
+  objects = lines_from(file)
+  result = {}
+  countFor = 0
+  countIf = 0
+  countElseIf = 0
+  countElse = 0
+  i = 1
+  j = 1
+  while i <= #objects do
+    countFor = countFor + 1
+    if not string.match(objects[i], "}") and not string.match(objects[i], "%[") and not string.match(objects[i], "%]") then
+      if result[j] == nil then
+        result[j] = objects[i]
+      else 
+        result[j] = result[j]..objects[i]
+      end
+      countIf = countIf + 1
+    else 
+      if string.match(objects[i], "}") then
+        if result[j] == nil then
+          result[j] = "}"
+        else 
+          result[j] = result[j].."}"
+        end
+        countElseIf = countElseIf + 1
+        j = j + 1
+      else 
+        result[j] = result[j]
+        countElse = countElse + 1
+      end
     end
+   i = i + 1
   end
-  return objects
+  return result
 end
-end
+-- end
 
 -- Query function for retrieving one specific conference.
 -- @param conference: conference name
@@ -111,6 +132,7 @@ function get_conference_json(conference)
     end
   end
   return result;
+  --return allConferences
 end
 
 -- Query function for retrieving all papers from a
