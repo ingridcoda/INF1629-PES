@@ -65,7 +65,7 @@
 				--list all papers link
 				cgilua.print('<a href='..cfg.file_all_papers..'>'..'Todos os Papers | Todos los Papers | All Papers' ..'</a>&nbsp;&nbsp;</br>')
 				  
-                -- list all wtrans conferences using dao to access the database
+                -- list all wtrans conferences using dao to access the json file
                 conferences = dao.get_conferences_json()
                 confs = {"WTRANS13", "WTRANS14", "WTRANS15", "WTRANS16", "WTRANS17", "WTRANS18"}
                 if conferences == nil then 

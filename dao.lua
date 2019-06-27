@@ -37,26 +37,19 @@ local function query(stmt)
   end
 end
 
--- Query function for retrieving all conferences ordered
--- by id.
--- @return iterator function containing tuples or nil
-function get_conferences()
-  local stmt = "select * from conferences order by id;"
-  return query(stmt)
-end
-
+-- Pré-condição: Arquivo JSON deve existir e ser válido
+-- Pós-condição: "lines" é uma tabela que cada índice contém uma linha do arquivo JSON
+-- Justificativa: A função "lines_from" retorna uma tabela com as linhas de um arquivo dado.
 function get_conferences_json()
-    -- tests the functions above
   local file = 'jsonConferences.json'
   local lines = lines_from(file)
   return lines
-
-  -- print all line numbers and their contents
-  --for k,v in pairs(lines) do
-  --  print('line[' .. k .. ']', v)
-  --end
 end
 
+-- Pré-condição: Arquivo "file" deve ser passado como parâmetro
+-- Pós-condição: "f" contém arquivo válido ou valor "nil"
+-- Justificativa: A função testa se o arquivo passado pode ser aberto ou não, 
+--                retornando o arquivo em caso positivo ou nulo em caso negativo.
 function file_exists(file)
   local io = require("io")
   local f = io.open(file, "rb")
@@ -64,8 +57,13 @@ function file_exists(file)
   return f ~= nil
 end
 
--- get all lines from a file, returns an empty 
--- list/table if the file does not exist
+-- Pré-condição: Arquivo "file" deve ser passado como parâmetro e função "file_exists" 
+--               deve existir e estar no mesmo módulo .lua
+-- Pós-condição: "lines" é uma tabela que cada índice contém uma linha do arquivo ou 
+--                está vazia em caso do arquivo não existir
+-- Justificativa: A função usa a função "files_exists" para testar se arquivo existe e,
+--                caso exista, itera suas linhas e adiciona no "lines", caso não exista, 
+--                "lines" é vazia, retornando seu valor ao final da execução
 function lines_from(file)
   local io = require("io")
   if not file_exists(file) then return {} end
@@ -76,6 +74,34 @@ function lines_from(file)
   return lines
 end
 
+function object_lines_from(file)
+  local io = require("io")
+  if not file_exists(file) then
+    return {}
+  end
+  objects = {}
+  objects = lines_from(file)
+  result = {}
+  i = 1
+  while i <= #objects do
+    if not string.match(objects[i], "{") and not string.match(objects[i], "}") and not string.match(objects[i], "%[") and not string.match(objects[i], "%]") then
+      result[#result + 1] = objects[i]
+    else 
+      result[#result + 1] = result[#result + 1]
+    end
+   i = i + 1
+  end
+  return result
+end
+
+-- Pré-condição: Arquivo "file" deve ser passado como parâmetro e as funções "file_exists" 
+--               e "lines_from" devem existir e estar no mesmo módulo .lua
+-- Pós-condição: "lines" é uma tabela que cada índice contém uma linha do arquivo ou 
+--                está vazia em caso do arquivo não existir
+-- Justificativa: A função verifica existência do arquivo e, caso não exista, retorna uma 
+--                tabela vazia, caso contrário, ela obtém as linhas do arquivo e itera sobre
+--                elas, verificando seu conteúdo para retornar os parâmetros de cada um dos 
+--                objetos JSON de forma concateada.
 function object_from(file)
   local io = require("io")
   if not file_exists(file) then
@@ -84,21 +110,21 @@ function object_from(file)
   objects = {}
   objects = lines_from(file)
   result = {}
-  countFor = 0
-  countIf = 0
-  countElseIf = 0
-  countElse = 0
+  --countFor = 0
+  --countIf = 0
+ -- countElseIf = 0
+  --countElse = 0
   i = 1
   j = 1
   while i <= #objects do
-    countFor = countFor + 1
+   -- countFor = countFor + 1
     if not string.match(objects[i], "}") and not string.match(objects[i], "%[") and not string.match(objects[i], "%]") then
       if result[j] == nil then
         result[j] = objects[i]
       else 
         result[j] = result[j]..objects[i]
       end
-      countIf = countIf + 1
+      --countIf = countIf + 1
     else 
       if string.match(objects[i], "}") then
         if result[j] == nil then
@@ -106,25 +132,28 @@ function object_from(file)
         else 
           result[j] = result[j].."}"
         end
-        countElseIf = countElseIf + 1
+       -- countElseIf = countElseIf + 1
         j = j + 1
       else 
         result[j] = result[j]
-        countElse = countElse + 1
+       -- countElse = countElse + 1
       end
     end
    i = i + 1
   end
   return result
 end
--- end
 
--- Query function for retrieving one specific conference.
--- @param conference: conference name
--- @return table containing conference information
+-- Pré-condição: "conference" deve ser passado como parâmetro e a função "object_from" 
+--                deve existir e estar no mesmo módulo .lua
+-- Pós-condição: "result" é uma string que contém todo o conteúdo do JSON correspondente 
+--                à conferencia passada
+-- Justificativa: A função utiliza a função "object_from" para obter os dados em JSON da
+--                conferência e retornar seu valor
 function get_conference_json(conference)
   local file = 'jsonConferences.json'
   local allConferences = object_from(file)
+  -- local allConferencesSplit = object_lines_from(file)
   local result = nil
   for k,v in pairs(allConferences) do
     if string.match(v, conference) then
@@ -133,6 +162,22 @@ function get_conference_json(conference)
   end
   return result;
   --return allConferences
+end
+
+function split_string(str, separator)
+ local ret = {}
+ local j = 1
+ for match in str:gmatch('[^'..separator..']') do
+  if #match == #str then --No separator found in string.
+    return ret
+  end
+  if ret[j] == nil then
+    ret[j] = match
+  else
+    ret[j] = ret[j]..match
+  end
+ end
+ return ret
 end
 
 -- Query function for retrieving all papers from a
