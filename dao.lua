@@ -121,8 +121,10 @@ function object_from(file)
     if not string.match(objects[i], "}") and not string.match(objects[i], "%[") and not string.match(objects[i], "%]") then
       if result[j] == nil then
         result[j] = objects[i]
+        result[j] = result[j].."<br/>"
       else 
         result[j] = result[j]..objects[i]
+        result[j] = result[j].."<br/>"
       end
       --countIf = countIf + 1
     else 
@@ -165,19 +167,12 @@ function get_conference_json(conference)
 end
 
 function split_string(str, separator)
- local ret = {}
- local j = 1
- for match in str:gmatch('[^'..separator..']') do
-  if #match == #str then --No separator found in string.
-    return ret
+  local table = require("table")
+  result = {}
+  for match in (str..separator):gmatch("(.-)"..separator) do
+    table.insert(result, match)
   end
-  if ret[j] == nil then
-    ret[j] = match
-  else
-    ret[j] = ret[j]..match
-  end
- end
- return ret
+  return result
 end
 
 -- Query function for retrieving all papers from a

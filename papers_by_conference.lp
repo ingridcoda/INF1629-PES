@@ -1,11 +1,37 @@
 <%
   dofile"dao.lua"
   local cfg = dofile"config.lua"
-  local c = dao.get_conference_json(cgilua.QUERY.conference)
-  if c == nil then 
-  	cgilua.print('<p>NULO O C</p>') 
+  local conf = dao.get_conference_json(cgilua.QUERY.conference)
+  local d = dao.split_string(conf, "<br/>")
+  local c = {}
+  if conf == nil or d == nil then 
+  	cgilua.print('<p>NULO O CONF</p>') 
   else   	               
-    cgilua.print('<p>'..c..'</p>&nbsp;&nbsp;\n')
+    cgilua.print('<p>'..conf..'</p>&nbsp;&nbsp;\n')	
+	for k,v in pairs(d) do 
+		local e = dao.split_string(v, ":")
+		local i = 0
+		local keys = {}
+		local values = {}
+		if #e > 0 then
+			for key,value in pairs(e) do
+				if i % 2 == 0 then
+					keys[#keys + 1] = value
+				else
+					values[#values + 1] = value
+				end
+				i = i+1
+			end
+			i = 1
+			while i <= #keys and i <= #values do
+				c[keys[i]] = values[i]
+				i = i+1
+			end
+		end
+	end
+	for k,v in pairs(c) do
+		cgilua.print('<p> chave '..k..' valor '..v..'</p>\n')
+	end
   end
   
   -- --ATUALIZAR O NUMERO DE CITACOES DO PAPER (20 ULTIMOS ATUALIZADOS) 1 VEZ X DIA
@@ -54,7 +80,7 @@
 <tr>
  <%
   --header modified to add the capes logo 4-14-2016 
- -- local title_string = string.format("<td><h1><a href=http://%s>%s</a> - Workshop de Transpar�ncia em Sistemas %s: %s, %s </h1></td>",
+ -- local title_string = string.format("<td><h1><a href=http://%s>%s</a> - Workshop de Transparência em Sistemas %s: %s, %s </h1></td>",
  --   'wtrans.inf.puc-rio.br', c.name_conference, c.year, c.city, c.country)
  -- local capes_string = string.format("<td width='5' align=right><img border='0' src='"..cfg["file_capes_logo"].."'></td>")
  -- if c.year == '2013' or c.year == '2015' then
@@ -68,7 +94,7 @@
 		
   <hr>
   <%
-   -- local anais_string = string.format("Anais do %s - Workshop de Transpar�ncia "
+   -- local anais_string = string.format("Anais do %s - Workshop de Transparência "
    --   .."em Sistemas, %s, %s, %s %s, %s", c.name_conference, c.city,
    --   c.country, c.month, c.days, c.year, c.ISSN, c.ISBN, c.year)
 
