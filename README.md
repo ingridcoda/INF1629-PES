@@ -2,6 +2,8 @@
 
 WtranS - Workshop de Transparência em Sistemas
 
+Esse projeto pertence à disciplina "INF1629 - Princípios de Engenharia de Software" da PUC-RIO.
+
 Baseado no [WtranS](http://wtrans.inf.puc-rio.br), este projeto tem o objetivo de listar artigos acadêmicos. 
 Nosso diferencial do projeto original é a fonte de consumo dos dados que alimentam o site. 
 Nosso intuito é transformar o conteúdo do banco de dados MySQL usado no projeto original em arquivos .JSON e adaptar o código fonte do projeto para consumir os dados dessa nova fonte. 
@@ -95,6 +97,6 @@ Segue abaixo a documentação do projeto:
 
 6) Cronograma do Projeto:
 
-Veja aqui o [Cronograma](Documentos/cronograma.pdf?raw=true "Title")
+Veja aqui o [Cronograma](Documentos/cronograma.pdf?raw=true "Title") do projeto.
 
 
