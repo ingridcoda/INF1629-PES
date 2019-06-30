@@ -6,6 +6,8 @@ Baseado no [WtranS](http://wtrans.inf.puc-rio.br), este projeto tem o objetivo d
 Nosso diferencial do projeto original é a fonte de consumo dos dados que alimentam o site. 
 Nosso intuito é transformar o conteúdo do banco de dados MySQL usado no projeto original em arquivos .JSON e adaptar o código fonte do projeto para consumir os dados dessa nova fonte. 
 
+URL de acesso: [http://wtransdev.inf.puc-rio.br](http://wtransdev.inf.puc-rio.br)
+
 Segue abaixo a documentação do projeto:
 
   1) Linguagem de Definição:
@@ -90,4 +92,9 @@ Segue abaixo a documentação do projeto:
 5) Modelo ETVX:
 
 ![Modelo ETVX do Projeto WtranS](Documentos/ETVX.JPG?raw=true "Title")
+
+6) Cronograma do Projeto:
+
+Veja aqui o [Cronograma](Documentos/INF1629 - Trabalho 2 - Cronograma do Projeto - Versão 2 - Ingrid, Mariela e Pilar.pdf?raw=true "Title")
+
 
