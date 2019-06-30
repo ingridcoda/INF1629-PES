@@ -3,6 +3,7 @@
 WtranS - Workshop de Transparência em Sistemas
 
 Esse projeto pertence à disciplina "INF1629 - Princípios de Engenharia de Software" da PUC-RIO.
+Alunas e desenvolvedoras: Ingrid Coda, Mariela Andrade e Pilar Fernandez.
 
 Baseado no [WtranS](http://wtrans.inf.puc-rio.br), este projeto tem o objetivo de listar artigos acadêmicos. 
 Nosso diferencial do projeto original é a fonte de consumo dos dados que alimentam o site. 
