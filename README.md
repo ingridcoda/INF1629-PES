@@ -1,3 +1,3 @@
 # INF1629-PES
 
-![Matriz de Rastreabilidade do Projeto WtranS](/Documentos/matriz_rastreabilidade.jpg?raw=true "Title")
+![Matriz de Rastreabilidade do Projeto WtranS](INF1629-PES/Documentos/matriz_rastreabilidade.JPG?raw=true "Title")
