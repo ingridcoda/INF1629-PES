@@ -59,6 +59,7 @@ Segue abaixo a documentação do projeto:
 
 ![Matriz de Rastreabilidade do Projeto WtranS](Documentos/matriz_rastreabilidade.JPG?raw=true "Title")
 
+
 4) Arquitetura do Projeto:
 
  - Arquitetura Geral:
@@ -66,16 +67,27 @@ Segue abaixo a documentação do projeto:
 ![Arquitetura Geral do Projeto WtranS](Documentos/Arquitetura/Arquitetura.jpg?raw=true "Title")
 
  - index.html:
+ 
 ![Arquitetura index.html do Projeto WtranS](Documentos/Arquitetura/index.html.jpg?raw=true "Title")
 
  - index.lp:
+ 
 ![Arquitetura index.lp do Projeto WtranS](Documentos/Arquitetura/index.lp.jpg?raw=true "Title")
 
  - papers_by_conference.lp:
+ 
 ![Arquitetura papers_by_conference.lp do Projeto WtranS](Documentos/Arquitetura/papers_by_conference.lp.jpg?raw=true "Title")
 
  - dao.lua:
+ 
 ![Arquitetura dao.lua do Projeto WtranS](Documentos/Arquitetura/dao.lua.jpg?raw=true "Title")
 
  - all_papers.lp:
+ 
 ![Arquitetura all_papers.lp do Projeto WtranS](Documentos/Arquitetura/all_papers.lp.jpg?raw=true "Title")
+
+
+5) Modelo ETVX:
+
+![Modelo ETVX do Projeto WtranS](Documentos/ETVX.JPG?raw=true "Title")
+
