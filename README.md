@@ -95,6 +95,6 @@ Segue abaixo a documentação do projeto:
 
 6) Cronograma do Projeto:
 
-Veja aqui o [Cronograma](Documentos/INF1629 - Trabalho 2 - Cronograma do Projeto - Versão 2 - Ingrid, Mariela e Pilar.pdf?raw=true "Title")
+Veja aqui o [Cronograma](Documentos/cronograma.pdf?raw=true "Title")
 
 
