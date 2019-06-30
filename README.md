@@ -66,7 +66,7 @@ Segue abaixo a documentação do projeto:
 ![Matriz de Rastreabilidade do Projeto WtranS](Documentos/matriz_rastreabilidade.JPG?raw=true "Title")
 
 
-4) Arquitetura do Projeto:
+4) Arquitetura do Projeto (contendo apenas os módulos envolvidos nas modificações realizadas por nós):
 
  - Arquitetura Geral:
  
@@ -93,7 +93,7 @@ Segue abaixo a documentação do projeto:
 ![Arquitetura all_papers.lp do Projeto WtranS](Documentos/Arquitetura/all_papers.lp.jpg?raw=true "Title")
 
 
-5) Modelo ETVX:
+5) Modelo ETVX (contendo apenas as informações envolvidas nas modificações realizadas por nós):
 
 ![Modelo ETVX do Projeto WtranS](Documentos/ETVX.JPG?raw=true "Title")
 
