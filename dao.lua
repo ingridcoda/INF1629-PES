@@ -180,9 +180,69 @@ end
 -- @param conference: conference name
 -- @return iterator function containing tuples or nil
 function list_papers_by_conference(conference)
-  local stmt = "select * from papers where name_conference = '"..conference
-    .."' order by paper_session;"
-  return query(stmt)
+  local file = "jsonPapers.json"
+  local allPapers = object_from(file)
+  local result = {}
+  --local countFor = 0
+  --local countForIf = 0
+  for k,v in pairs(allPapers) do
+    --countFor = countFor + 1
+    if string.match(v, conference) then
+      result[#result + 1] = v
+    end
+  end
+  return result--, countFor, countForIf
+end
+
+function separate_in_key_value(obj)
+  local d = obj
+  local c = {}
+  local ifk = 0
+  local ifv = 0
+  local elsev = 0
+  for k,v in pairs(d) do 
+		local e = split_string(v, ":")
+		local i = 0
+		local keys = {}
+    local values = {}
+    
+		if #e > 0 then
+			for key,value in pairs(e) do
+        if i % 2 == 0 then
+          ifk = ifk + 1
+					keys[#keys + 1] = string.sub(value, string.len('  "')+1, (string.len(value) - string.len('" ')))
+        else
+          if not string.match(string.sub(value, string.len(value) - 1, string.len(value)), ',') then
+            ifv = ifv + 1
+            values[#values + 1] = string.sub(value, string.len(' "')+1, (string.len(value) - string.len('"')))
+          else
+            elsev = elsev + 1
+            values[#values + 1] = string.sub(value, string.len(' "')+1, (string.len(value) - string.len('",')))
+          end
+				end
+				i = i+1
+			end
+			i = 1
+      while i <= #keys and i <= #values do
+        if values[i] == nil then
+          c[keys[i]] = " "
+        else
+          c[keys[i]] = values[i]
+        end
+				i = i+1
+			end
+		end
+  end
+  return c, ifk, ifv, elsev
+end
+
+
+function toStr(t)
+  local ret = "";
+  for k,v in pairs(t) do
+    ret = ret..v
+  end
+  return ret
 end
 
 -- Query function for retrieving one paper by id.

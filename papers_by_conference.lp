@@ -3,7 +3,7 @@
   local cfg = dofile"config.lua"
   local conf = dao.get_conference_json(cgilua.QUERY.conference)
   local d = dao.split_string(conf, "<br/>")
-  local c = {}
+  c = {}
   if conf == nil or d == nil then 
   	cgilua.print('<p>NULO O CONF</p>') 
   else   	               
@@ -16,9 +16,9 @@
 		if #e > 0 then
 			for key,value in pairs(e) do
 				if i % 2 == 0 then
-					keys[#keys + 1] = value
+					keys[#keys + 1] = string.sub(value,4, (string.len(value) - 2))
 				else
-					values[#values + 1] = value
+					values[#values + 1] = string.sub(value, 3, (string.len(value) - 2))
 				end
 				i = i+1
 			end
@@ -40,15 +40,15 @@
 <html>
 <head>
 <title>
-<%
--- if not c.name_conference and not c.year and not c.city and not c.country then
-	-- cgilua.print('<p>NULO O C</p>')
+<% 
+if not c["name_conference"] and not c["year"] and not c["city"] and not c["country"] then
+	cgilua.print('<p>NULO O C</p>')
 	-- cgilua.print('<p>'..c..'</p>')
--- else
+else
 	-- cgilua.print('<p>'..c..'</p>')
-	-- cgilua.print(string.format("%s %s: %s, %s",
-	-- c.name_conference, c.year, c.city, c.country))
-	-- end
+	cgilua.print(string.format("%s %s: %s, %s",
+	c["name_conference"], c["year"], c["city"], c["country"]))
+end
 %>
 </title>
 	<!-- google api -->
@@ -80,149 +80,206 @@
 <tr>
  <%
   --header modified to add the capes logo 4-14-2016 
- -- local title_string = string.format("<td><h1><a href=http://%s>%s</a> - Workshop de Transparência em Sistemas %s: %s, %s </h1></td>",
- --   'wtrans.inf.puc-rio.br', c.name_conference, c.year, c.city, c.country)
- -- local capes_string = string.format("<td width='5' align=right><img border='0' src='"..cfg["file_capes_logo"].."'></td>")
- -- if c.year == '2013' or c.year == '2015' then
--- 	cgilua.print("<H2>"..title_string.."<p>"..capes_string.."</H2>")
--- else
---	cgilua.print("<H2>"..title_string.."</H2>")
- --end
+ local title_string = string.format("<td><h1><a href=http://%s>%s</a> - Workshop de Transparência em Sistemas %s: %s, %s </h1></td>",
+   'wtrans.inf.puc-rio.br', c["name_conference"], c["year"], c["city"], c["country"])
+ local capes_string = string.format("<td width='5' align=right><img border='0' src='"..cfg["file_capes_logo"].."'></td>")
+ if c["year"] == '2013' or c["year"] == '2015' then
+	cgilua.print("<H2>"..title_string.."<p>"..capes_string.."</H2>")
+else
+	cgilua.print("<H2>"..title_string.."</H2>")
+end
 %>
 </tr>
 </table>
 		
   <hr>
   <%
-   -- local anais_string = string.format("Anais do %s - Workshop de Transparência "
-   --   .."em Sistemas, %s, %s, %s %s, %s", c.name_conference, c.city,
-   --   c.country, c.month, c.days, c.year, c.ISSN, c.ISBN, c.year)
+   local anais_string = string.format("Anais do %s - Workshop de Transparência "
+     .."em Sistemas, %s, %s, %s %s, %s", c["name_conference"], c["city"],
+     c["country"], c["month"], c["days"], c["year"], c["ISSN"], c["ISBN"], c["year"])
 
-  --  cgilua.print(string.format("%s (Ed.): "..anais_string..".<p align=right><a href='"..cfg["file_paper_home"].."' align=right>voltar</a><p>", c.editor))
+   cgilua.print(string.format("%s (Ed.): "..anais_string..".<p align=right><a href='"..cfg["file_paper_home"].."' align=right>voltar</a><p>", c["editor"]))
 
-   -- cgilua.print(string.format(
-  --    "<pre>@proceedings{<a href='"..cfg["file_wtrans_home"].."'>WTRANSArtigos</a>: %s,<br>&nbsp;&nbsp;"
-    --    .."editor = {%s},<br>&nbsp;&nbsp;"
-   --     .."title = {"..anais_string.."},<br>&nbsp;&nbsp;"
-  --      .."publisher = { },<br>&nbsp;&nbsp;"
+  -- cgilua.print(string.format(
+  --   "<pre>@proceedings{<a href='"..cfg["file_wtrans_home"].."'>WTRANSArtigos</a>: %s,<br>&nbsp;&nbsp;"
+   --    .."editor = {%s},<br>&nbsp;&nbsp;"
+   --    .."title = {"..anais_string.."},<br>&nbsp;&nbsp;"
+    --   .."publisher = { },<br>&nbsp;&nbsp;"
 	--	.."ISSN = {%s},<br>&nbsp;&nbsp;"
-   --     .."ISBN = {%s},<br>&nbsp;&nbsp;"
-   --     .."year = {%s}<br>"
-    --  .."}<br></pre>", c.name_conference, c.editor, c.ISSN, c.ISBN, c.year))
+    --   .."ISBN = {%s},<br>&nbsp;&nbsp;"
+    --   .."year = {%s}<br>"
+    -- .."}<br></pre>", c["name_conference"], c["editor"], c["ISSN"], c["ISBN"], c["year"]))
 	
 	
 	--get papers
- --   local gpapers = dao.list_papers_by_conference(cgilua.QUERY.conference)
+    local gpapers, ifk, ifv, elsev = dao.separate_in_key_value(dao.list_papers_by_conference(cgilua.QUERY.conference))
     -- PRINT TEXT FOR PAPERS, DOWNLOADS, CITATIONS AND DIV FOR CHART
---	local papers = ''
---	local downloads = ''
---	local citations = ''
---	local labels = ''
---	local i = 1
---	for p in gpapers do
---		if papers == '' then
---			papers = p.paper_title
---		else
---			papers = papers .. ',' .. p.paper_title
---		end
---		if downloads == '' then
---			downloads = p.num_downloads
---		else
---			downloads = downloads .. ',' .. p.num_downloads
---		end	
---		if citations == '' then
---			citations = p.num_citations
---		else
---			citations = citations .. ',' .. p.num_citations
---		end
+	local papers = ''
+	local downloads = ''
+	local citations = ''
+	local labels = ''
+	local i = 1
+	--for k,v in pairs(gpapers) do
+	--	cgilua.print('<p>'..v..'</p>')
+	--end
+	-- local test1 = dao.separate_in_key_value(dao.list_papers_by_conference(cgilua.QUERY.conference))
+	cgilua.print('<p>qtd ifk '..ifk..'</p>')
+	cgilua.print('<p>qtd ifv '..ifv..'</p>')
+	cgilua.print('<p>qtd elsev '..elsev..'</p>')
+	for k,v in pairs(gpapers) do
+		cgilua.print('<p> ENTREI NO FOR KV DO GPAPERS SÓ DE PRINT </p>')
+		cgilua.print('<p>'..v..'</p>')
+	end
+	for k,p in pairs(gpapers) do
+		cgilua.print('<p> ENTREI NO FOR KV DO GPAIRS </p>')
+		if papers == '' then
+			cgilua.print('<p> ENTREI NO FOR KV IF PAPERS DO GPAIRS </p>')
+			if p["paper_title"] == nil then
+				cgilua.print('<p> ENTREI NO FOR KV IF PAPERS IF DO GPAIRS </p>')
+				papers = " "
+			else
+				cgilua.print('<p> ENTREI NO FOR KV IF PAPERS ELSE DO GPAIRS </p>')
+				papers = p["paper_title"]
+			end
+		else
+			cgilua.print('<p> ENTREI NO FOR KV ELSE PAPERS DO GPAIRS </p>')
+			if p["paper_title"] ~= nil then
+				cgilua.print('<p> ENTREI NO FOR KV ELSE PAPERS IF DO GPAIRS </p>')
+				papers = papers .. ',' .. p["paper_title"]
+			end
+		end
+		if downloads == '' then
+		cgilua.print('<p> ENTREI NO FOR KV IF downloads DO GPAIRS </p>')
+			if p["num_downloads"] == nil then
+			cgilua.print('<p> ENTREI NO FOR KV IF downloads IF DO GPAIRS </p>')
+				downloads = " "
+			else
+			cgilua.print('<p> ENTREI NO FOR KV IF downloads ELSE DO GPAIRS </p>')
+				downloads = p["num_downloads"]
+			end
+		else
+		cgilua.print('<p> ENTREI NO FOR KV ELSE downloads DO GPAIRS </p>')
+			if p["num_downloads"] ~= nil then
+			cgilua.print('<p> ENTREI NO FOR KV ELSE downloads IF DO GPAIRS </p>')
+				downloads = downloads .. ',' .. p["num_downloads"]
+			end
+		end	
+		if citations == '' then
+		cgilua.print('<p> ENTREI NO FOR KV IF citations DO GPAIRS </p>')
+			if p["num_citations"] == nil then
+			cgilua.print('<p> ENTREI NO FOR KV IF citations if DO GPAIRS </p>')
+				citations = " "
+			else
+			 cgilua.print('<p> ENTREI NO FOR KV IF citations else DO GPAIRS </p>')
+				citations = p["num_citations"]
+			end			
+		else
+		cgilua.print('<p> ENTREI NO FOR KV else citations DO GPAIRS </p>')
+			if p["num_citations"] ~= nil then
+			cgilua.print('<p> ENTREI NO FOR KV else citations if DO GPAIRS </p>')
+				citations = citations .. ',' .. p["num_citations"]
+			end
+		end
 		
---		if labels == '' then
---			labels = p.file_name
---		else
---			labels = labels .. ',' .. p.file_name
---		end
---		i = i + 1
---	end
+		if labels == '' then
+		cgilua.print('<p> ENTREI NO FOR KV IF labels DO GPAIRS </p>')
+			if p["file_name"] == nil then
+			cgilua.print('<p> ENTREI NO FOR KV IF labels if DO GPAIRS </p>')
+				labels = " "
+			else
+			cgilua.print('<p> ENTREI NO FOR KV IF labels else DO GPAIRS </p>')
+				labels = p["file_name"]
+			end	
+		else
+		cgilua.print('<p> ENTREI NO FOR KV else labels DO GPAIRS </p>')
+			if p["file_name"] ~= nil then
+			cgilua.print('<p> ENTREI NO FOR KV else labels if DO GPAIRS </p>')
+				labels = labels .. ',' .. p["file_name"]
+			end
+		end
+		cgilua.print('<p> VALOR DE I NO FOR KV DO GPAIRS '..i..'</p>')
+		i = i + 1
+	end
+
+	cgilua.print("<input type= 'hidden' id ='papers' value = '"..papers.."'>")
+	cgilua.print("<input type= 'hidden' id ='labels' value = '"..labels.."'>")
+	cgilua.print("<input type= 'hidden' id ='downloads' value = '"..downloads.."'>")
+	cgilua.print("<input type= 'hidden' id ='citations' value = '"..citations.."'>")
+	cgilua.print("<div id='chart_div'></div>")
 	
---	cgilua.print("<input type= 'hidden' id ='papers' value = '"..papers.."'>")
---	cgilua.print("<input type= 'hidden' id ='labels' value = '"..labels.."'>")
---	cgilua.print("<input type= 'hidden' id ='downloads' value = '"..downloads.."'>")
---	cgilua.print("<input type= 'hidden' id ='citations' value = '"..citations.."'>")
---	cgilua.print("<div id='chart_div'></div>")
-	
---	--print tables of sessions of papers
---	local gpapers = dao.list_papers_by_conference(cgilua.QUERY.conference)
---	local i = 1
- --   old_paper_session = ""
---    for p in gpapers do
---      -- print session if it changed
---      if p.paper_session ~= old_paper_session then
+--	print tables of sessions of papers
+	local gpapers = dao.list_papers_by_conference(cgilua.QUERY.conference)
+	local i = 1
+    old_paper_session = ""
+    for p in gpapers do
+      -- print session if it changed
+      if p["paper_session"] ~= old_paper_session then
         -- Close old table if it changed
---		if old_paper_session ~= '' then
---			cgilua.print('</tbody></table>')
---		end
+		if old_paper_session ~= '' then
+			cgilua.print('</tbody></table>')
+		end
 		
 		-- NEW TITLE
---		cgilua.print("<H2>"..p.paper_session.."</H2>")
- --       old_paper_session = p.paper_session
+		cgilua.print("<H2>"..p["paper_session"].."</H2>")
+        old_paper_session = p["paper_session"]
 				
 		-- Open new table if it changed
---		cgilua.print('<table cellspacing=\"1\" class=\"tablesorter\">')
---		cgilua.print('<thead>')
---				cgilua.print('<tr>')
---					cgilua.print('<th>Paper&nbsp</th>')
---					cgilua.print('<th>Cita��es&nbsp</th>')
---					cgilua.print('<th>Downloads&nbsp</th>')
---				cgilua.print('</tr>')
---			cgilua.print('</thead>')
---			cgilua.print('<tbody>')
---      end
+		cgilua.print('<table cellspacing=\"1\" class=\"tablesorter\">')
+		cgilua.print('<thead>')
+				cgilua.print('<tr>')
+					cgilua.print('<th>Paper&nbsp</th>')
+					cgilua.print('<th>Citações&nbsp</th>')
+					cgilua.print('<th>Downloads&nbsp</th>')
+				cgilua.print('</tr>')
+			cgilua.print('</thead>')
+			cgilua.print('<tbody>')
+      end
 	  
-	  --number of downloads
+	 -- number of downloads
 	  
---	  local downloads = 0
---		downloads = p.num_downloads
---	  local  citations = 0
---		citations = p.num_citations
---		--end	
- --     local scholar_url = require"scholar/scholar_string_cleaner".montaUrl(
- --                                 cfg.scholar_base_url, p.paper_title, p.author)
+	  local downloads = 0
+		downloads = p["num_downloads"]
+	  local  citations = 0
+		citations = p["num_citations"]
+		--end	
+      local scholar_url = require"scholar/scholar_string_cleaner".montaUrl(
+                                  cfg.scholar_base_url, p["paper_title"], p["author"])
       
       -- print each paper published IN A SORTED TABLE
- --     cgilua.print('<tr>')
- --     	    cgilua.print('<td>')
- --     			cgilua.print(string.format(
-  --    			"<div><h2><b>%s</b>.</h2></div>", p.paper_title or ""
- --     			))
- --     			cgilua.print(string.format(
- --     			-- "<font size='2'>%s,".." %s. "..anais_string..", pp %s</font><br>", p.author, p.add_author, p.page or ""
-  --    			"<font size='2'>%s"..", %s</font><br>", p.author, p.add_author or ""
-  --    			))
-  --    			cgilua.print('[')
- --     			cgilua.print(string.format(
-  --    			"<a href='artigos/artigos_%s/%s' target='_blank' onClick=\"ga('send', 'event', { eventCategory: 'Papers', eventAction: 'Download', eventLabel: '%s'} );\" >pdf</a>", p.name_conference, p.file_name, p.file_name or ""
- --     			))
-  --    			cgilua.print('] - ')
-  --    			cgilua.print('[')
- --     			cgilua.print(string.format(
---      			"<a href='%s' target='_blank'>scholar</a>", scholar_url or ""
- --     			))
- --     			cgilua.print(']')
- --     			cgilua.print(string.format("<br><br>"))
+     cgilua.print('<tr>')
+     	    cgilua.print('<td>')
+     			cgilua.print(string.format(
+     			"<div><h2><b>%s</b>.</h2></div>", p["paper_title"] or ""
+     			))
+     			cgilua.print(string.format(
+     			-- "<font size='2'>%s,".." %s. "..anais_string..", pp %s</font><br>", p["author"], p["add_author"], p["page"] or ""
+     			"<font size='2'>%s"..", %s</font><br>", p["author"], p["add_author"] or ""
+     			))
+     			cgilua.print('[')
+     			cgilua.print(string.format(
+     			"<a href='artigos/artigos_%s/%s' target='_blank' onClick=\"ga('send', 'event', { eventCategory: 'Papers', eventAction: 'Download', eventLabel: '%s'} );\" >pdf</a>", p["name_conference"], p["file_name"], p["file_name"] or ""
+     			))
+     			cgilua.print('] - ')
+     			cgilua.print('[')
+     			cgilua.print(string.format(
+      			"<a href='%s' target='_blank'>scholar</a>", scholar_url or ""
+     			))
+     			cgilua.print(']')
+     			cgilua.print(string.format("<br><br>"))
       			
---			cgilua.print('</td>')	
- --   		cgilua.print('<td>')
---				cgilua.print(string.format("<font face='Arial' size='2'>Citado por: %s </font>",citations))
---			cgilua.print('</td>')
-  --   		cgilua.print('<td>')
---				cgilua.print(string.format("<font face='Arial' size='2' data-analytics-label='%s' class='downloads-number' old-downloads-number='%s'>", p.file_name, downloads))
---				cgilua.print("Downloads: ...")
---				cgilua.print("</font>")
---			cgilua.print('</td>')
---	  cgilua.print('</tr>')
+			cgilua.print('</td>')	
+    		cgilua.print('<td>')
+				cgilua.print(string.format("<font face='Arial' size='2'>Citado por: %s </font>",citations))
+			cgilua.print('</td>')
+     		cgilua.print('<td>')
+				cgilua.print(string.format("<font face='Arial' size='2' data-analytics-label='%s' class='downloads-number' old-downloads-number='%s'>", p["file_name"], downloads))
+				cgilua.print("Downloads: ...")
+				cgilua.print("</font>")
+			cgilua.print('</td>')
+	  cgilua.print('</tr>')
       
- --     i = i + 1
- --   end
+      i = i + 1
+    end
 	--LAST TABLE
 	-- Close old table if it changed
 --	if old_paper_session ~= '' then
