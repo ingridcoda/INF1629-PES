@@ -266,8 +266,13 @@ end
 -- Query function for retrieving most cited papers ordered by citations (DESC).
 -- @return iterator function containing tuples or nil
 function get_papers_most_cited()
-  local stmt = "select * from papers where num_citations > 0 order by num_citations DESC;"
-  return query(stmt)
+  local file = "jsonMostCited.json"
+  local mostCitedPapers = object_from(file)
+  local result = {}
+  for k,v in pairs(mostCitedPapers) do
+    result[#result + 1] = v
+  end
+  return result
 end
 
 function insert_conference(c)

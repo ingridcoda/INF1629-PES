@@ -54,7 +54,9 @@
 	local citations = ''
 	local labels = ''
 	local i = 1
-	for p in most_cited do
+	for k, v in pairs(most_cited) do
+		local x = dao.split_string(v, "<br/>")
+		local p = dao.separate_in_key_value(x)
 		if papers == '' then
 			papers = i
 		else
@@ -62,20 +64,20 @@
 		end
 		
 		if downloads == '' then
-			downloads = p.num_downloads
+			downloads = p["num_downloads"]
 		else
-			downloads = downloads .. ',' .. p.num_downloads
+			downloads = downloads .. ',' .. p["num_downloads"]
 		end
 		
 		if citations == '' then
-			citations = p.num_citations
+			citations = p["num_citations"]
 		else
-			citations = citations .. ',' .. p.num_citations
+			citations = citations .. ',' .. p["num_citations"]
 		end
 		if labels == '' then
-			labels = p.file_name
+			labels = p["file_name"]
 		else
-			labels = labels .. ',' .. p.file_name
+			labels = labels .. ',' .. p["file_name"]
 		end
 		i = i + 1
 	end
@@ -88,7 +90,7 @@
 	
 	--print tables of sessions of papers	
 	--ATUALIZAR O NUMERO DE CITACOES DO PAPER (20 ULTIMOS ATUALIZADOS) 1 VEZ X DIA
-	local update_most_cited = dofile(cfg.file_most_cited)
+	--local update_most_cited = dofile(cfg.file_most_cited)
 
 	local most_cited = dao.get_papers_most_cited()
 	local i = 0
@@ -98,37 +100,39 @@
 		cgilua.print('<thead>')
 			cgilua.print('<tr>')
 				cgilua.print('<th>Paper&nbsp</th>')
-				cgilua.print('<th>Edi��o&nbsp</th>')
-				cgilua.print('<th>Cita��es&nbsp&nbsp</th>')
+				cgilua.print('<th>Edição&nbsp</th>')
+				cgilua.print('<th>Citações&nbsp&nbsp</th>')
 				cgilua.print('<th>Downloads&nbsp</th>')
 			cgilua.print('</tr>')
 		cgilua.print('</thead>')
 		cgilua.print('<tbody>')
-		for p in most_cited do
+		for k, v in pairs(most_cited) do
+			local x = dao.split_string(v, "<br/>")
+			local p = dao.separate_in_key_value(x)
 			i = i + 1
 			  --number of downloads
 			  
 			  local downloads = 0
-				downloads = p.num_downloads
+				downloads = p["num_downloads"]
 			  local  citations = 0
-				citations = p.num_citations
+				citations = p["num_citations"]
 				--end	
 			  local scholar_url = require"scholar/scholar_string_cleaner".montaUrl(
-										  cfg.scholar_base_url, p.paper_title, p.author)
+										  cfg.scholar_base_url, p["paper_title"], p["author"])
 			  
 			 			  -- print each paper published IN A SORTED TABLE
 		      cgilua.print('<tr>')
 		      	    cgilua.print('<td>')
 		      			cgilua.print(string.format(
-		      			"<div><h2><b>%s</b>.</h2></div>", p.paper_title or ""
+		      			"<div><h2><b>%s</b>.</h2></div>", p["paper_title"] or ""
 		      			))
 		      			cgilua.print(string.format(
-		      			-- "<font size='2'>%s,".." %s. "..anais_string..", pp %s</font><br>", p.author, p.add_author, p.page or ""
-		      			"<font size='2'>%s"..", %s</font><br>", p.author, p.add_author or ""
+		      			-- "<font size='2'>%s,".." %s. "..anais_string..", pp %s</font><br>", p["author"], p["add_author"], p["page"] or ""
+		      			"<font size='2'>%s"..", %s</font><br>", p["author"], p["add_author"] or ""
 		      			))
 		      			cgilua.print('[')
 		      			cgilua.print(string.format(
-		      			"<a href='artigos/artigos_%s/%s' target='_blank' onClick=\"ga('send', 'event', { eventCategory: 'Papers', eventAction: 'Download', eventLabel: '%s'} );\" >pdf</a>", p.name_conference, p.file_name, p.file_name or ""
+		      			"<a href='artigos/artigos_%s/%s' target='_blank' onClick=\"ga('send', 'event', { eventCategory: 'Papers', eventAction: 'Download', eventLabel: '%s'} );\" >pdf</a>", p["name_conference"], p["file_name"], p["file_name"] or ""
 		      			))
 		      			cgilua.print('] - ')
 		      			cgilua.print('[')
@@ -140,13 +144,13 @@
 
 					cgilua.print('</td>')	
 					cgilua.print('<td>')
-						cgilua.print(string.format("<font face='Arial' size='2'> %s </font>", p.name_conference or ""))
+						cgilua.print(string.format("<font face='Arial' size='2'> %s </font>", p["name_conference"] or ""))
 					cgilua.print('</td>')
 		     		cgilua.print('<td>')
 						cgilua.print(string.format("<font face='Arial' size='2'>Citado por: %s </font>", citations))
 					cgilua.print('</td>')
 		     		cgilua.print('<td>')
-						cgilua.print(string.format("<font face='Arial' size='2' data-analytics-label='%s' class='downloads-number' old-downloads-number='%s'>", p.file_name, p.num_downloads))
+						cgilua.print(string.format("<font face='Arial' size='2' data-analytics-label='%s' class='downloads-number' old-downloads-number='%s'>", p["file_name"], p["num_downloads"]))
 						cgilua.print("Downloads: ...")
 						cgilua.print("</font>")
 					cgilua.print('</td>')
@@ -163,11 +167,11 @@
 		cgilua.print([[
 		  <center>
 			<br>
-			Infelizmente, ainda n�o existem cita��es para artigos dessa confer�ncia.
+			Infelizmente, ainda não existem citações para artigos dessa conferência.
 			<br>
 			Unfortunately, there are still no citations for articles of this conference.
 			<br>
-			Desafortunadamente, todav�a no hay citas de art�culos de esta conferencia.
+			Desafortunadamente, todavía no hay citas de artículos de esta conferencia.
 			<br>
 		  </center>
 		  <br>
