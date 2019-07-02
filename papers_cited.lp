@@ -5,7 +5,7 @@
 %>
 <html>
 <head>
-  <title>Mais citados | Más Citados | Most Cited</title>
+  <title>Mais citados | MÃ¡s Citados | Most Cited</title>
   
 	<!--
 	jQuery plugin: Tablesorter 2.0 - Sort table using a link outside the table
@@ -44,7 +44,7 @@
 	<!-- end google api -->
 </head>
 <body>
-  <h2 align=center>Mais citados | Más Citados | Most Cited</h2>
+  <h2 align=center>Mais citados | MÃ¡s Citados | Most Cited</h2>
 <%
 	--get most cited papers (20)
     local  most_cited = dao.get_papers_most_cited()
@@ -98,8 +98,8 @@
 		cgilua.print('<thead>')
 			cgilua.print('<tr>')
 				cgilua.print('<th>Paper&nbsp</th>')
-				cgilua.print('<th>Edição&nbsp</th>')
-				cgilua.print('<th>Citações&nbsp&nbsp</th>')
+				cgilua.print('<th>Ediï¿½ï¿½o&nbsp</th>')
+				cgilua.print('<th>Citaï¿½ï¿½es&nbsp&nbsp</th>')
 				cgilua.print('<th>Downloads&nbsp</th>')
 			cgilua.print('</tr>')
 		cgilua.print('</thead>')
@@ -163,11 +163,11 @@
 		cgilua.print([[
 		  <center>
 			<br>
-			Infelizmente, ainda não existem citações para artigos dessa conferência.
+			Infelizmente, ainda nï¿½o existem citaï¿½ï¿½es para artigos dessa conferï¿½ncia.
 			<br>
 			Unfortunately, there are still no citations for articles of this conference.
 			<br>
-			Desafortunadamente, todavía no hay citas de artículos de esta conferencia.
+			Desafortunadamente, todavï¿½a no hay citas de artï¿½culos de esta conferencia.
 			<br>
 		  </center>
 		  <br>
@@ -198,7 +198,7 @@
 
 		function PapersChartDrawer(downloadsJson) {
 			var OPTIONS = {
-				title: 'Downloads e Citações',
+				title: 'Downloads e Citaï¿½ï¿½es',
 				annotations: {
 					alwaysOutside: true,
 					textStyle: {
@@ -216,7 +216,7 @@
 					}
 				},
 				vAxis: {
-					title: 'Ocorrências'
+					title: 'Ocorrï¿½ncias'
 				}
 			};
 
@@ -237,7 +237,7 @@
 					var data = new google.visualization.DataTable();
 					data.addColumn('string', 'xAxisNames');
 					data.addColumn('number', 'Downloads');
-					data.addColumn('number', 'Citações');
+					data.addColumn('number', 'Citaï¿½ï¿½es');
 					//criar data json para o gerador de grafico
 					var jsonNodes = [];
 					for	(index = 0; index < array_papers.length; index++) {
