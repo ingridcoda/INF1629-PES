@@ -238,9 +238,13 @@ end
 -- Query function for retrieving all papers.
 -- @return iterator function containing tuples or nil
 function get_all_papers()
-  --local stmt = "select id, paper_title, author from papers;"
-  local stmt = "select * from papers order by name_conference;"
-  return query(stmt)
+  local file = "jsonPapers.json"
+  local allPapers = object_from(file)
+  local result = {}
+  for k,v in pairs(allPapers) do
+    result[#result + 1] = v
+  end
+  return result
 end
 
 -- Query function for retrieving 20 papers ordered by date of citations (ASC).

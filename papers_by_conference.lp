@@ -168,7 +168,6 @@ end
 	
 --	print tables of sessions of papers
 	local gpapers = dao.list_papers_by_conference(cgilua.QUERY.conference)
-	gpaperstable = {}
 	for k, v in pairs(gpapers) do
 			local x = dao.split_string(v, "<br/>")
 			local p = dao.separate_in_key_value(x)

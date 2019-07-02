@@ -7,7 +7,7 @@ cgilua.print([[
   <tr>
     <td width="34%">
       <div align="center"><a target="_blank" href="]]..cfg.file_paper_home..[[">
-        <img border="0" src="]]..img..[[/logo_wtrans_papers3.jpg" width="247"
+        <img border="0" src="logo_wtrans_papers3.jpg" width="247"
           height="56"></a> </div></td>
     
     
