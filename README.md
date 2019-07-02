@@ -92,6 +92,10 @@ Segue abaixo a documentação do projeto:
  
 ![Arquitetura all_papers.lp do Projeto WtranS](Documentos/Arquitetura/all_papers.lp.jpg?raw=true "Title")
 
+ - papers_cited.lp:
+ 
+![Arquitetura papers_cited.lp do Projeto WtranS](Documentos/Arquitetura/papers_cited.lp.jpg?raw=true "Title")
+
 
 5) Modelo ETVX (contendo apenas as informações envolvidas nas modificações realizadas por nós):
 
