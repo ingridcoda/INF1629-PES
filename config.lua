@@ -16,7 +16,7 @@ file_most_cited_limit = 20,
 temporal_files_dir = "file_tmp/",
 
 file_wtrans_home = "../index.html",
-file_capes_logo = "../imagens/logo-capes.png",
+file_capes_logo = "logo-capes.png",
 file_paper_home = "index.lp",
 file_conference_home = "papers_by_conference.lp",
 file_paper_cited = "papers_cited.lp",

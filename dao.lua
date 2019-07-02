@@ -110,14 +110,9 @@ function object_from(file)
   objects = {}
   objects = lines_from(file)
   result = {}
-  --countFor = 0
-  --countIf = 0
- -- countElseIf = 0
-  --countElse = 0
   i = 1
   j = 1
   while i <= #objects do
-   -- countFor = countFor + 1
     if not string.match(objects[i], "}") and not string.match(objects[i], "%[") and not string.match(objects[i], "%]") then
       if result[j] == nil then
         result[j] = objects[i]
@@ -126,7 +121,6 @@ function object_from(file)
         result[j] = result[j]..objects[i]
         result[j] = result[j].."<br/>"
       end
-      --countIf = countIf + 1
     else 
       if string.match(objects[i], "}") then
         if result[j] == nil then
@@ -134,11 +128,9 @@ function object_from(file)
         else 
           result[j] = result[j].."}"
         end
-       -- countElseIf = countElseIf + 1
         j = j + 1
       else 
         result[j] = result[j]
-       -- countElse = countElse + 1
       end
     end
    i = i + 1
@@ -155,7 +147,6 @@ end
 function get_conference_json(conference)
   local file = 'jsonConferences.json'
   local allConferences = object_from(file)
-  -- local allConferencesSplit = object_lines_from(file)
   local result = nil
   for k,v in pairs(allConferences) do
     if string.match(v, conference) then
@@ -163,7 +154,6 @@ function get_conference_json(conference)
     end
   end
   return result;
-  --return allConferences
 end
 
 function split_string(str, separator)
@@ -197,26 +187,19 @@ end
 function separate_in_key_value(obj)
   local d = obj
   local c = {}
-  local ifk = 0
-  local ifv = 0
-  local elsev = 0
   for k,v in pairs(d) do 
 		local e = split_string(v, ":")
 		local i = 0
 		local keys = {}
-    local values = {}
-    
+    local values = {}    
 		if #e > 0 then
 			for key,value in pairs(e) do
         if i % 2 == 0 then
-          ifk = ifk + 1
 					keys[#keys + 1] = string.sub(value, string.len('  "')+1, (string.len(value) - string.len('" ')))
         else
-          if not string.match(string.sub(value, string.len(value) - 1, string.len(value)), ',') then
-            ifv = ifv + 1
+          if not string.match(string.sub(value, string.len(value), string.len(value)), ',') then
             values[#values + 1] = string.sub(value, string.len(' "')+1, (string.len(value) - string.len('"')))
           else
-            elsev = elsev + 1
             values[#values + 1] = string.sub(value, string.len(' "')+1, (string.len(value) - string.len('",')))
           end
 				end
@@ -233,9 +216,8 @@ function separate_in_key_value(obj)
 			end
 		end
   end
-  return c, ifk, ifv, elsev
+  return c
 end
-
 
 function toStr(t)
   local ret = "";

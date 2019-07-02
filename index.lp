@@ -8,7 +8,7 @@
 <html>
 <head>
    <title>WTranSartigos - Artigos Publicados no Workshop de Transparência em Sistemas</title>
-   <meta charset="unicode"/>
+   <meta http-equiv="Content-Type" content="text/html; charset=unicode">
 </head>
 
 <body>
