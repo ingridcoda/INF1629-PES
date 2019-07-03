@@ -202,7 +202,7 @@
 
 		function PapersChartDrawer(downloadsJson) {
 			var OPTIONS = {
-				title: 'Downloads e Cita��es',
+				title: 'Downloads e Citações',
 				annotations: {
 					alwaysOutside: true,
 					textStyle: {
