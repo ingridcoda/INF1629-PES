@@ -220,7 +220,7 @@
 					}
 				},
 				vAxis: {
-					title: 'Ocorr�ncias'
+					title: 'Ocorrências'
 				}
 			};
 

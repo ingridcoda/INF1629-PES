@@ -74,26 +74,6 @@ function lines_from(file)
   return lines
 end
 
-function object_lines_from(file)
-  local io = require("io")
-  if not file_exists(file) then
-    return {}
-  end
-  objects = {}
-  objects = lines_from(file)
-  result = {}
-  i = 1
-  while i <= #objects do
-    if not string.match(objects[i], "{") and not string.match(objects[i], "}") and not string.match(objects[i], "%[") and not string.match(objects[i], "%]") then
-      result[#result + 1] = objects[i]
-    else 
-      result[#result + 1] = result[#result + 1]
-    end
-   i = i + 1
-  end
-  return result
-end
-
 -- Pré-condição: Arquivo "file" deve ser passado como parâmetro e as funções "file_exists" 
 --               e "lines_from" devem existir e estar no mesmo módulo .lua
 -- Pós-condição: "lines" é uma tabela que cada índice contém uma linha do arquivo ou 
@@ -156,6 +136,13 @@ function get_conference_json(conference)
   return result;
 end
 
+-- Pré-condição:  Strings "str" e "separator" devem ser passadas como parâmetro 
+-- Pós-condição: "result" é uma tabela que cada índice contém uma parte da string 
+--               "str", ou está vazia em caso da string não existir ou o separador
+--                não for encontrado
+-- Justificativa: A função verifica existência do separador "separator" na string 
+--                "str" e, caso não exista, retorna uma tabela vazia, caso contrário, 
+--                obtém partes da string e armazena em cada índice, retornando seu valor
 function split_string(str, separator)
   local table = require("table")
   result = {}
@@ -165,25 +152,32 @@ function split_string(str, separator)
   return result
 end
 
--- Query function for retrieving all papers from a
--- specific conference.
--- @param conference: conference name
--- @return iterator function containing tuples or nil
+-- Pré-condição:  String "conference" deve ser passada como parâmetro 
+--                e função "object_from" deve existir e estar no mesmo 
+--                módulo .lua
+-- Pós-condição: "result" é uma tabela que cada índice contém um paper, 
+--                ou está vazia em caso da conferencia não existir 
+-- Justificativa: A função verifica existência da conferencia "conference"
+--                no arquivo "jsonPapers.json" e, caso não exista, retorna 
+--                uma tabela vazia, caso contrário, retorna os papers
 function list_papers_by_conference(conference)
   local file = "jsonPapers.json"
   local allPapers = object_from(file)
   local result = {}
-  --local countFor = 0
-  --local countForIf = 0
   for k,v in pairs(allPapers) do
-    --countFor = countFor + 1
     if string.match(v, conference) then
       result[#result + 1] = v
     end
   end
-  return result--, countFor, countForIf
+  return result
 end
 
+-- Pré-condição:  Tabela "obj" deve ser passada como parâmetro e função
+--                "split_string" deve existir e estar no mesmo módulo .lua
+-- Pós-condição: "c" é uma tabela que cada índice contém um par chave e valor, 
+--                ou está vazia em caso de "obj" estar vazia
+-- Justificativa: A função realiza a formatação e separação de uma tabela 
+--                gerada com dados tipo string em chave e valor. 
 function separate_in_key_value(obj)
   local d = obj
   local c = {}
@@ -219,14 +213,6 @@ function separate_in_key_value(obj)
   return c
 end
 
-function toStr(t)
-  local ret = "";
-  for k,v in pairs(t) do
-    ret = ret..v
-  end
-  return ret
-end
-
 -- Query function for retrieving one paper by id.
 -- @param paper_id: paper id
 -- @return iterator function containing tuples or nil
@@ -235,8 +221,10 @@ function get_paper_by_id(paper_id)
   return query(stmt)
 end
 
--- Query function for retrieving all papers.
--- @return iterator function containing tuples or nil
+-- Pré-condição:  função "object_from" deve existir e estar no mesmo módulo .lua
+-- Pós-condição: "result" é uma tabela que contém todos os papers
+-- Justificativa: A função utiliza a função "object_from" para obter os dados em 
+--                JSON do arquivo "jsonPapers.json" e retornar seu valor
 function get_all_papers()
   local file = "jsonPapers.json"
   local allPapers = object_from(file)
@@ -263,8 +251,10 @@ function get_last_citation_paper()
   return query(stmt)
 end
 
--- Query function for retrieving most cited papers ordered by citations (DESC).
--- @return iterator function containing tuples or nil
+-- Pré-condição:  função "object_from" deve existir e estar no mesmo módulo .lua
+-- Pós-condição: "result" é uma tabela que contém todos os papers mais citados
+-- Justificativa: A função utiliza a função "object_from" para obter os dados em 
+--                JSON do arquivo "jsonMostCited.json" e retornar seu valor
 function get_papers_most_cited()
   local file = "jsonMostCited.json"
   local mostCitedPapers = object_from(file)
