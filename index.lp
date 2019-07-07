@@ -1,4 +1,4 @@
-<%
+﻿<%
   local cfg = dofile"config.lua"
   local limit = cfg.file_most_cited_limit
   

@@ -1,5 +1,6 @@
-<%
+﻿<%
   dofile"dao.lua"
+  dofile"xmlgenerator.lua"
   local cfg = dofile"config.lua"
   local conf = dao.get_conference_json(cgilua.QUERY.conference)  
   local d = dao.split_string(conf, "<br/>")
@@ -7,6 +8,7 @@
   --for k,v in pairs(c) do
   	--cgilua.print('<p> chave '..k..' valor '..v..'</p>\n')
   --end
+  xmlgenerator.createXML(cgilua.QUERY.conference)
   
   -- --ATUALIZAR O NUMERO DE CITACOES DO PAPER (20 ULTIMOS ATUALIZADOS) 1 VEZ X DIA
 	-- local update_most_cited = dofile(cfg.file_most_cited)

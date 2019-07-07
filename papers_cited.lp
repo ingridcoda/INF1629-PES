@@ -1,4 +1,4 @@
-<%
+﻿<%
   dofile"dao.lua"
   local cfg = dofile"config.lua"
   local n = tonumber(cgilua.QUERY.limit) or 20
