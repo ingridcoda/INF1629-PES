@@ -53,9 +53,10 @@ Segue abaixo a documentação do projeto:
 
   - Requisitos Não Funcionais:
     1.	O sistema deve ser desenvolvido em Lua.
-    2.	O sistema deve pegar os dados de um JSON/XML.
-    3.	Migrar o banco de dados para leitura de JSON/XML.
-    4.	Performance maior ou igual a anterior.
+    2.	O sistema deve ler os dados de arquivos JSON.
+    3.	Migrar o banco de dados para arquivos JSON.
+    4.  Gerador XML deve ser criado.
+    5.	Performance maior ou igual a anterior.
 
   - Requisitos Inversos:
     1.	O sistema não deve ter performance pior do que a versão existente.
@@ -63,7 +64,13 @@ Segue abaixo a documentação do projeto:
 
 3) Matriz de Rastreabilidade do Projeto (contendo apenas os módulos envolvidos nas modificações realizadas por nós):
 
-![Matriz de Rastreabilidade do Projeto WtranS](Documentos/matriz_rastreabilidade.JPG?raw=true "Title")
+![Matriz de Rastreabilidade dos Arquivos de Código-Fonte do Projeto WtranS](Documentos/matriz_rastreabilidade_codigo.JPG?raw=true "Title")
+
+
+![Matriz de Rastreabilidade dos Arquivos Gerados do Projeto WtranS](Documentos/matriz_rastreabilidade_arquivos.JPG?raw=true "Title")
+
+
+![Matriz de Rastreabilidade dos Requisitos do Projeto WtranS](Documentos/matriz_rastreabilidade_requisitos.JPG?raw=true "Title")
 
 
 4) Arquitetura do Projeto (contendo apenas os módulos envolvidos nas modificações realizadas por nós):
