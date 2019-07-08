@@ -1,0 +1,88 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Analytics - A quickstart guide for JavaScript</title>
+  </head>
+  <body>
+
+  <button id="auth-button" hidden>Authorize</button>
+
+  <h1>Hello Analytics</h1>
+
+  <textarea cols="80" rows="20" id="query-output"></textarea>
+
+  <script>
+
+    // Replace with your client ID from the developer console.
+    var CLIENT_ID = '231055422421-g0oec8tgn2c3vh74a4is3jbvr2di3qu8.apps.googleusercontent.com';
+
+    // Set authorized scope.
+    var SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
+
+
+    function authorize(event) {
+      // Handles the authorization flow.
+      // `immediate` should be false when invoked from the button click.
+      var useImmdiate = event ? false : true;
+      var authData = {
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        immediate: useImmdiate
+      };
+//      {
+//  "type": "service_account",
+//  "private_key_id": "de3a1e4ee2a9e3638118ec9e5dafabf07aba0948",
+//  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDNK8YGlUjDjXT9\n+DolPwIBptLlhS2cTSCLTCb7JwUJ/qy14IbhMgSj7VxdddJERoT5daD/nBoBS/BR\nB+qm+FC2E4za2KRbVSDCxoNSVMxd5NGt346IbFWup/woiTiNQI33du206dkHcHyF\nVk1FBeGHdCMk6TyOVjo0i4es71jo0lCWd+6CNZVLmlv8Tst+asRZBY1Mm6byrh81\nNGTso6NjAKEh8MHjj9zAMoejPiE80HhEeYEMereb/L3X5MfYPj7/bgu1gKvrN+PY\nOhf93G0J8pYNbSMhCb3CnND6MHBaCYpnt3pVRdrfSBweP7hJRSnZDaFveXqh0sqt\nddTkP4X7AgMBAAECggEAVDUNF5KZxLkANWR16OeNWUQw9sbMS4RUQRfGP/pp1QpT\ntGossaynvugiqrE61Y7j8MbYh1B4U+PpBDjtlA4CglhPzVpxSpML2SVErLvlDPxn\nGqfQhimAmSiVE8YOEdtW6SREt6Xqz2TZlpgvKo8ZW1DNQ87+baTySrKhwtaRdSxv\nujFQhAaNS6LOESuem96umn+AafUJOMMtNY0RQI/IpNqyO1kG4grFaowpODid12K+\ndgD9GdrtyU6zvEcSW5EivO1WUgH5SYfC5N3bgIE6bNErV6m9/pptpRf5bhdr9XlX\nIz2tdf++O9kK8ATQ85LA3Q+DzZyDrve5l6OwMMx+UQKBgQD7hsHbZs2wQFgEFZ9h\nCmjPTQJRVMMj6AH/n69+z3xxLHZx5wpvPZQ/lYcVqA/NiJE1FHGIEZoQ2+VRk6Wf\nmTWHWW25eDfuvhJT7DNKQ/zdn4kgUnMiBNI6IdcsHAtAvMxoVYaoJg4HgqTCHWPV\n9vU9IS9YLhjxHWF6A1XpJJoFdwKBgQDQ0fPCiemCdekcV1sJTdSXtSyu+2Q3dMTZ\nlf4MVuUiN7np4rfbRUA9Y8JibRFzUiyDuk5CAj5mynrZ5evV5TG8EF4OXgV1GJQ+\n9e/ElfxQJLDqT6DspPp3i6C/28u9mxgzGgtajahbio6deMzMmVpooxQgqY1LfNWV\n4aMhQEI0nQKBgCqomTpHvjzVPNg8fpJrvIjkC6+Vi58MW0JqZ84/DGD5ZIE+6RMi\nw4DhME7o+P0n21DATd0A9ztCwCrMurtNtbll3mklTX8tN1iKZ8yBqWJBC3Wy5hnv\n7WO0l5TAkNwC6TwMvVDJW3nEm4LcjzEbuE4M0cXH060ZCY4zAKAQ+BpTAoGAfrGD\nJVqrNB35ytotP53bCBhB/gBEM2lDLYhVVIM8DeCliYOmbQC9EwH9o93son0OyPU2\nGdJmrdLXanCW/3VJEYMUrb7ZrMu21eQ9Dpa5OJ6qP98EEc+erv0mEIF4QZdhvU9l\n6BDePnv4Pw5VoyS/t5CJ269DLLOWmpMFeF0WTfkCgYEAnOKMl5g3VkxKxXMvaCPA\nF6+siFSaWJejcH6W+xwl9EsPNIrQPs7tobp0CbFuJrvVgzvrXYaIKehzidNPSk+n\n6MYjZs886VIBo+tagA/32RmnanizpaIXvfP0VZZeSrzwni3CiVoBdNTPA5Gl9Vt0\nvkcv695+mdfoziIqA+vMn1s=\n-----END PRIVATE KEY-----\n",
+//  "client_email": "account-4@goals-de-wtrans.iam.gserviceaccount.com",
+//  "client_id": "115734108827208929285",
+//  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+//  "token_uri": "https://accounts.google.com/o/oauth2/token",
+//  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+//  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/account-4%40goals-de-wtrans.iam.gserviceaccount.com",
+//  scope: SCOPES
+//}
+
+      gapi.auth.authorize(authData, function(response) {
+        var authButton = document.getElementById('auth-button');
+        if (response.error) {
+          authButton.hidden = false;
+        }
+        else {
+          authButton.hidden = true;
+          queryCoreReportingApi();
+        }
+      });
+    }
+
+
+function queryCoreReportingApi() {
+  // Query the Core Reporting API for the number sessions for
+  // the past seven days.
+  gapi.client.analytics.data.ga.get({
+    'ids': 'ga:110869796',
+    'start-date': '2015-10-01',
+    'end-date': 'today',
+    'metrics': 'ga:totalEvents',
+    'dimensions': 'ga:eventLabel'
+  })
+  .then(function(response) {
+    var formattedJson = JSON.stringify(response.result, null, 2);
+    document.getElementById('query-output').value = formattedJson;
+  })
+  .then(null, function(err) {
+      // Log any errors.
+      console.log(err);
+  });
+}
+
+
+
+  // Add an event listener to the 'auth-button'.
+  document.getElementById('auth-button').addEventListener('click', authorize);
+</script>
+
+<script src="https://apis.google.com/js/client.js?onload=authorize"></script>
+
+</body>
+</html>

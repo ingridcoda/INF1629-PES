@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE dblpsubmission SYSTEM "dblpsubmission.dtd">
+<?xml-stylesheet type="text/xsl" href="dblpsubmission.xsl" ?>
+<dblpsubmission>
+	<proceedings>
+		<key>WTranS</key>
+		<editor>Julio Cesar Sampaio do Prado Leite</editor>
+		<editor> Priscila Engiel</editor>
+		<editor> Claudia Cappelli Aló</editor>
+		<editor> Vanessa Nunes </editor>
+		<title>Anais do WTRANS16 - Workshop de Transparência em Sistemas</title>
+		<publisher>Editora PUC-Rio</publisher>
+		<year>2016</year>
+		<conf>
+			<acronym>WTranS 2016</acronym>
+			<number>19</number>
+			<location>Rio de Janeiro - RJ, Brasil</location>
+			<date>29 de Novembro de 2016</date>
+			<url>http://wtrans.inf.puc-rio.br/WTRANSartigos/papers_by_conference.lp?conference=WTRANS16</url>
+		</conf>
+		<toc>
+			<publ>
+				<author>Vanessa T. Nunes</author>
+				<author>Claudia Cappelli</author>
+				<author> Marcus Vinicius da Costa</author>
+				<title>Promoting Transparency in Government through FACI</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS16/WTranS_2016_paper_1.pdf</ee>
+			</publ>
+			<publ>
+				<author>André Cruz Alves Cavalcante</author>
+				<author>Maurício Serrano</author>
+				<author> Milene Serrano</author>
+				<title>Argumentaçã</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS16/WTranS_2016_paper_2.pdf</ee>
+			</publ>
+			<publ>
+				<author>Joanna Pivatelli</author>
+				<author>Julio Cesar Sampaio do Prado Leite </author>
+				<title>Transparecendo os Problemas Vivenciados pelas Organizações Públicas na Mudança de Requisitos </title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS16/WTranS_2016_paper_9.pdf</ee>
+			</publ>
+			<publ>
+				<author>Priscila Engiel</author>
+				<author>Roxana Lisette Quintanilla Portugal</author>
+				<author> Julio Cesar Sampaio do Prado Leite.</author>
+				<title>Descobrindo Projetos de Lei relacionados a Transparência</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS16/WTranS_2016_paper_4.pdf</ee>
+			</publ>
+			<publ>
+				<author>Romulo Eduardo Garcia Moraes</author>
+				<author>Flavia Cristina Bernardini1</author>
+				<author> José Viterbo Filho</author>
+				<title>Uma Arquitetura para Linked Data para Armazenamento eDisponibilizacão de Dados de Saúde Pública</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS16/WTranS_2016_paper_5.pdf</ee>
+			</publ>
+			<publ>
+				<author>Matheus Felipe Zanetti de Macedo</author>
+				<author>José Rodolfo Beluzo</author>
+				<title>LunetaGo</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS16/WTranS_2016_paper_8.pdf</ee>
+			</publ>
+			<publ>
+				<author>Priscila Engiel</author>
+				<author>Julio Cesar Sampaio do Prado Leite </author>
+				<title>Tornando a Legislação Transparente para o Engenheiro de Requisitos </title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS16/WTranS_2016_paper_7.pdf</ee>
+			</publ>
+			<publ>
+				<author>Leandro Miranda</author>
+				<author>José Viterbo</author>
+				<author> Flavia Bernardini</author>
+				<author> Cristiano Maciel</author>
+				<author> Raissa Barcellos</author>
+				<author> Daniela Trevisan</author>
+				<title>Uso de técnicas de visualização no apoio à análise de dados urbanos para a melhoria da transparência pública</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS16/WTranS_2016_paper_6.pdf</ee>
+			</publ>
+			<publ>
+				<author>Luiz Paulo da Silva</author>
+				<author>Flávia Maria Santoro</author>
+				<author> Claudia Cappelli</author>
+				<title>Transparência no processo eleitora</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS16/WTranS_2016_paper_3.pdf</ee>
+			</publ>
+		</toc>
+	</proceedings>
+</dblpsubmission>

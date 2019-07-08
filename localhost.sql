@@ -1,0 +1,3 @@
+select * from papers where num_citations > 0 order by num_citations DESC;
+
+SET @jsonMostCited=(SELECT JSON_ARRAYAGG(JSON_OBJECT("id", id, "paper_title", paper_title, "file_name", file_name, "key_words",  key_words, "language", `language`, "author", author, "add_author", add_author, "abstract", abstract, "paper_session", paper_session, "page", `page`, "name_conference", name_conference, "num_downloads", num_downloads, "num_citations", num_citations, "date_citations", date_citations)) FROM (select * from papers where num_citations > 0 order by num_citations DESC) tabela);
