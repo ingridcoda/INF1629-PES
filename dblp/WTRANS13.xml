@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE dblpsubmission SYSTEM "dblpsubmission.dtd">
+<?xml-stylesheet type="text/xsl" href="dblpsubmission.xsl" ?>
+<dblpsubmission>
+	<proceedings>
+		<key>WTranS</key>
+		<editor>André Luiz de Castro Leal</editor>
+		<editor> Marília Guterres Ferreira</editor>
+		<editor> Julio Cesar Sampaio do Prado Leite</editor>
+		<title>Anais do WTRANS13 - Workshop de Transparência em Sistemas</title>
+		<publisher>Editora PUC-Rio</publisher>
+		<year>2013</year>
+		<conf>
+			<acronym>WTranS 2013</acronym>
+			<number>1</number>
+			<location>Brasília, Brasil</location>
+			<date>29 de Setembro de 2013</date>
+			<url>http://wtrans.inf.puc-rio.br/WTRANSartigos/papers_by_conference.lp?conference=WTRANS13</url>
+		</conf>
+		<toc>
+			<publ>
+				<author>André Luiz de Castro Leal</author>
+				<author>Marília Guterres Ferreira</author>
+				<author> Julio Cesar Sampaio do Prado Leite</author>
+				<title>Prefácio Português</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-prefacio.pdf</ee>
+			</publ>
+			<publ>
+				<author>Prof. Dr. José Carlos Vaz</author>
+				<author></author>
+				<title>Transparência de Sistema</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-Palestra1.pdf</ee>
+			</publ>
+			<publ>
+				<author>Joara Marchezini</author>
+				<author></author>
+				<title>Implementação da Lei de Acesso à Informaçã</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-prefacio.pdf</ee>
+			</publ>
+			<publ>
+				<author>Henrique do Prado Sousa</author>
+				<author>André Luiz de Castro Leal</author>
+				<author> Marília Guterres Ferreira</author>
+				<author> Julio Cesar Sampaio do Prado Leite</author>
+				<author> Arndt von Staa</author>
+				<title>Relações de Interseção entre Transparência e o MPS.BR</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-castro.pdf</ee>
+			</publ>
+			<publ>
+				<author>Kizzy Macedo Benjamin</author>
+				<author>Claudia Cappelli</author>
+				<author> Gleison Santos</author>
+				<title>Processo de Avaliação da Transparência Organizacional</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-macedo.pdf</ee>
+			</publ>
+			<publ>
+				<author>Marcelo T. Santana</author>
+				<author>Gisele S. Craveiro</author>
+				<title>Requisitos para construção de um padrão publicação da execução de orçamento público no Brasil</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-santana.pdf</ee>
+			</publ>
+			<publ>
+				<author>Lislaine Krupek Braz de Oliveira</author>
+				<author>Cristiano Maciel</author>
+				<title>Transparência das Contas Públicas e Controle Social via Portal do Cidadão - um estudo de caso </title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-krupek.pdf</ee>
+			</publ>
+			<publ>
+				<author>Claudia Cappelli</author>
+				<author>Priscila Engiel</author>
+				<author> Julio Cesar Sampaio do Prado Leite</author>
+				<author> Vanessa Nunes</author>
+				<author> Asterio Tanaka</author>
+				<author> Renata Mendes de Araujo</author>
+				<author> Gleison Santos</author>
+				<author> Kizzy Benjamim</author>
+				<author> Miriam Moraes</author>
+				<title>Construção do Modelo de Maturidade em Transparência Organizacional</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-capelli.pdf</ee>
+			</publ>
+			<publ>
+				<author>Fabíola Ferreira de Macedo</author>
+				<author>Patrícia Vilain</author>
+				<title>Desafios da Transparência no Contexto da Terceirização do Desenvolvimento de Software no Setor Público</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-ferreira.pdf</ee>
+			</publ>
+			<publ>
+				<author>Fabíola Ferreira de Macedo</author>
+				<author>Patrícia Vilain</author>
+				<title>Ações de Transparência no Processo de Desenvolvimento de Software no Setor Público</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-ferreira2.pdf</ee>
+			</publ>
+			<publ>
+				<author>Caique Peixoto</author>
+				<author>Maurício Serrano e Milene Serrano</author>
+				<title>Transparência em Sistemas Multiagentes</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-peixoto.pdf</ee>
+			</publ>
+			<publ>
+				<author>José Carlos Vaz</author>
+				<author>Manuella Maia Ribeiro</author>
+				<author> Ricardo Matheus</author>
+				<title>Desafios para a Governança Eletrônica e Dados Governamentais Abertos em Governos Locais</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-vaz.pdf</ee>
+			</publ>
+			<publ>
+				<author>Priscila Engiel</author>
+				<author>Marília Guterres Ferreira</author>
+				<author> Antonio Lutfi</author>
+				<author> Julio Cesar Sampaio do Prado Leite</author>
+				<title>O Processo de Construção de Léxico Ampliado da Linguagem para a Transparência </title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-engiel.pdf</ee>
+			</publ>
+			<publ>
+				<author>Edgar Sarmiento Calisaya</author>
+				<author>Julio Cesar Sampaio do Prado Leite</author>
+				<title>Transparência e Testabilidade para a Geração Automatizada de Casos de Teste de Software </title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-sarmiento.pdf</ee>
+			</publ>
+			<publ>
+				<author>Elizabeth Suescún Monsalve</author>
+				<author>Vera Maria B. Werneck</author>
+				<author> Julio Cesar Sampaio do Prado Leite</author>
+				<title>Incorporando Transparência na Pedagogia através do Uso de Jogos para Ensino</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-suescun.pdf</ee>
+			</publ>
+			<publ>
+				<author>Hugo Estrada</author>
+				<author>Blanca Vazquez</author>
+				<author> Karen Najera</author>
+				<title>Using Transparency Models to evaluate Open Data System</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS13/wtrans13-estrada.pdf</ee>
+			</publ>
+		</toc>
+	</proceedings>
+</dblpsubmission>

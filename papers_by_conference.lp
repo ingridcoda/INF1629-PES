@@ -8,7 +8,8 @@
   --for k,v in pairs(c) do
   	--cgilua.print('<p> chave '..k..' valor '..v..'</p>\n')
   --end
-  xmlgenerator.createXML(cgilua.QUERY.conference)
+  local l = xmlgenerator.createXML(cgilua.QUERY.conference)
+  if l ~= nil then cgilua.print('<p>'..l..'</p>') end
   
   -- --ATUALIZAR O NUMERO DE CITACOES DO PAPER (20 ULTIMOS ATUALIZADOS) 1 VEZ X DIA
 	-- local update_most_cited = dofile(cfg.file_most_cited)

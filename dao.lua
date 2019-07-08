@@ -62,7 +62,7 @@ end
 -- Pós-condição: "lines" é uma tabela que cada índice contém uma linha do arquivo ou 
 --                está vazia em caso do arquivo não existir
 -- Justificativa: A função usa a função "files_exists" para testar se arquivo existe e,
---                caso exista, itera suas linhas e adiciona no "lines", caso não exista, 
+--                caso exista, itera suas linhas e adiciona no "lines". Caso não exista, 
 --                "lines" é vazia, retornando seu valor ao final da execução
 function lines_from(file)
   local io = require("io")
@@ -81,7 +81,7 @@ end
 -- Justificativa: A função verifica existência do arquivo e, caso não exista, retorna uma 
 --                tabela vazia, caso contrário, ela obtém as linhas do arquivo e itera sobre
 --                elas, verificando seu conteúdo para retornar os parâmetros de cada um dos 
---                objetos JSON de forma concateada.
+--                objetos JSON de forma concatenada.
 function object_from(file)
   local io = require("io")
   if not file_exists(file) then
@@ -185,16 +185,30 @@ function separate_in_key_value(obj)
 		local e = split_string(v, ":")
 		local i = 0
 		local keys = {}
-    local values = {}    
+    local values = {}  
+    local isNumber = false;  
 		if #e > 0 then
 			for key,value in pairs(e) do
         if i % 2 == 0 then
+          if string.match(value, "id") or  string.match(value, "num_downloads") or string.match(value, "num_citations") then
+            isNumber = true;
+          else
+            isNumber = false;
+          end
 					keys[#keys + 1] = string.sub(value, string.len('  "')+1, (string.len(value) - string.len('" ')))
         else
           if not string.match(string.sub(value, string.len(value), string.len(value)), ',') then
-            values[#values + 1] = string.sub(value, string.len(' "')+1, (string.len(value) - string.len('"')))
+            if isNumber then
+              values[#values + 1] = string.sub(value, string.len(' ')+1, string.len(value))
+            else
+              values[#values + 1] = string.sub(value, string.len(' "')+1, (string.len(value) - string.len('"')))
+            end
           else
-            values[#values + 1] = string.sub(value, string.len(' "')+1, (string.len(value) - string.len('",')))
+            if isNumber then
+              values[#values + 1] = string.sub(value, string.len(' ')+1, (string.len(value) - string.len(',')))
+            else
+              values[#values + 1] = string.sub(value, string.len(' "')+1, (string.len(value) - string.len('",')))
+            end
           end
 				end
 				i = i+1

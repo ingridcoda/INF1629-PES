@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE dblpsubmission SYSTEM "dblpsubmission.dtd">
+<?xml-stylesheet type="text/xsl" href="dblpsubmission.xsl" ?>
+<dblpsubmission>
+	<proceedings>
+		<key>WTranS</key>
+		<editor>Julio Cesar Sampaio do Prado Leite</editor>
+		<editor> Eduardo Kinder Almentero</editor>
+		<title>Anais do WTRANS14 - Workshop de Transparência em Sistemas</title>
+		<publisher>Editora PUC-Rio</publisher>
+		<year>2014</year>
+		<conf>
+			<acronym>WTranS 2014</acronym>
+			<number>2</number>
+			<location>Londrina, 2014</location>
+			<date>28 de Maio de 2014</date>
+			<url>http://wtrans.inf.puc-rio.br/WTRANSartigos/papers_by_conference.lp?conference=WTRANS14</url>
+		</conf>
+		<toc>
+			<publ>
+				<author>André Luiz de Castro Leal</author>
+				<author>Sergio Manuel Serra da Cruz</author>
+				<title>Transparência em Experimentos Científicos  Apoiados Em Proveniênci</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper1.pdf</ee>
+			</publ>
+			<publ>
+				<author>Kizzy Macedo Benjamin</author>
+				<author>Claudia Cappelli</author>
+				<author> Gleison Santos</author>
+				<title>Guia de Avaliação em Transparência Organizacional </title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper2.pdf</ee>
+			</publ>
+			<publ>
+				<author>Cristiane Iglesias</author>
+				<author>Claudia Cappelli</author>
+				<author> Renata Araujo</author>
+				<title>Formalização do Catálogo de Características de Entendimento de Modelos de Processo de Prestação de  Serviços Públicos Inseridos na Carta de Serviços</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper3.pdf</ee>
+			</publ>
+			<publ>
+				<author>Fabio Bittencourt Forte</author>
+				<author>Patrícia Vilain</author>
+				<author> Fabíola Ferreira de Macedo</author>
+				<title>Análise da Transparência de Software em Sites de Instituições de Ensino Superior</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper6.pdf</ee>
+			</publ>
+			<publ>
+				<author>Andrés M. R. Martano</author>
+				<author>Gisele S. Craveiro</author>
+				<title>Abertura e Disponibilização de Dados Abertos Governamentai</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper8.pdf</ee>
+			</publ>
+			<publ>
+				<author>Ricardo Matheus</author>
+				<author>José Carlos Vaz</author>
+				<author> Manuella Maia Ribeiro</author>
+				<title>Dados Governamentais Abertos e o ciclo virtuoso de uso de dados e informações públicas para o controle social, melhoria dos serviços públicos e desenvolvimento da economi</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper10.pdf</ee>
+			</publ>
+			<publ>
+				<author>Claudia Cappelli</author>
+				<author>Priscila Engiel</author>
+				<author> Julio Cesar Sampario do Prado Leite</author>
+				<author> Vanessa Nunes</author>
+				<author> Asterio Tanaka</author>
+				<author> Gleison Santos</author>
+				<author> Kizzy Benjamim</author>
+				<title>A Evolução do Modelo de Maturidade em Transparência Organizacional </title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper5.pdf</ee>
+			</publ>
+			<publ>
+				<author>Edgar Sarmiento Calisaya</author>
+				<author>Eduardo Almentero</author>
+				<author> JulioCesar Sampaio do Prado Leite</author>
+				<title>Aumentando a Transparência no Software C&L - Lua</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper7.pdf</ee>
+			</publ>
+			<publ>
+				<author>José R. Beluzo</author>
+				<author>Gisele S. Craveiro</author>
+				<title>Criação de um repositório integrado de dados da execução orçamentária brasileira proveniente de diferentes fontes de dados em um modelo dimensional Data Warehouse</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper9.pdf</ee>
+			</publ>
+			<publ>
+				<author>Priscila Engiel</author>
+				<author>Julio Cesar Sampaio do Prado Leite</author>
+				<author> Claudia Cappelli</author>
+				<title>Confirmando a Demanda por Transparênci</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS14/paper4.pdf</ee>
+			</publ>
+		</toc>
+	</proceedings>
+</dblpsubmission>

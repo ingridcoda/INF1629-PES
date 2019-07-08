@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE dblpsubmission SYSTEM "dblpsubmission.dtd">
+<?xml-stylesheet type="text/xsl" href="dblpsubmission.xsl" ?>
+<dblpsubmission>
+	<proceedings>
+		<key>WTranS</key>
+		<editor>Vanessa Tavares Nunes</editor>
+		<editor> Claudia Cappelli</editor>
+		<editor> André Luiz de Castro Leal and Julio Cesar Sampaio do Prado Leite</editor>
+		<title>Anais do WTRANS15 - Workshop de Transparência em Sistemas</title>
+		<publisher>Editora PUC-Rio</publisher>
+		<year>2015</year>
+		<conf>
+			<acronym>WTranS 2015</acronym>
+			<number>18</number>
+			<location>Manaus, Brasil</location>
+			<date>15 de Agosto de 2015</date>
+			<url>http://wtrans.inf.puc-rio.br/WTRANSartigos/papers_by_conference.lp?conference=WTRANS15</url>
+		</conf>
+		<toc>
+			<publ>
+				<author>Priscila Engiel</author>
+				<author>Joanna Pivatelli</author>
+				<author> Roxana Portugal</author>
+				<author> Julio Cesar Sampaio do Prado Leite</author>
+				<title>Representando o Conceito de Transparência Através de um Léxico Ampliado da Linguagem</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS15/paper5_15.pdf</ee>
+			</publ>
+			<publ>
+				<author>Rafael Machado</author>
+				<author>José Viterbo</author>
+				<author> Cláudia Cappelli</author>
+				<author> Daniela Trevisan</author>
+				<author> Cristiano Maciel</author>
+				<title>Avaliação da aplicação da Lei de Acesso à Informação em municípios fluminenses</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS15/paper4_15.pdf</ee>
+			</publ>
+			<publ>
+				<author>Milene Serrano</author>
+				<author>Maurício Serrano</author>
+				<title>Investigating Software Transparenc</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS15/paper2_15.pdf</ee>
+			</publ>
+			<publ>
+				<author>Roxana Lisette Quintanilla Portugal</author>
+				<author>Julio Cesar Sampaio do Prado Leite</author>
+				<title>A Transparência do GitHub para uso de Artefatos como fontes de informação na Engenharia de Requisitos</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS15/paper3_15.pdf</ee>
+			</publ>
+			<publ>
+				<author>Luiz Paulo da Silva </author>
+				<author>Flavia Santoro</author>
+				<author> Claudia Cappelli</author>
+				<title>Transparência e entendimento de processos em uma universidade pública</title>
+				<ee>http://wtrans.inf.puc-rio.br/WTRANSartigos/artigos/artigos_WTRANS15/paper1_15.pdf</ee>
+			</publ>
+		</toc>
+	</proceedings>
+</dblpsubmission>
