@@ -112,4 +112,104 @@ Segue abaixo a documentação do projeto:
 
 Veja aqui o [Cronograma](Documentos/cronograma.pdf?raw=true "Title") do projeto.
 
+7) Evidências de Teste:
 
+Segue abaixo uma comparação entre o projeto original e a versão por nós desenvolvida (DEV):
+
+ - index.lp
+ 
+    - Versão Original:
+    
+    ![Evidência de teste index.lp do Projeto Original WtranS](Documentos/teste/indexlp-original.png?raw=true "Title")
+    
+    - Versão DEV:
+    
+    ![Evidência de teste index.lp do Projeto DEV WtranS](Documentos/teste/indexlp-dev.png?raw=true "Title")
+    
+ 
+ - all_papers.lp
+ 
+    - Versão Original:
+    
+    ![Evidência de teste all_papers do Projeto Original WtranS](Documentos/teste/allpapers-original.png?raw=true "Title")
+    
+    - Versão DEV:
+    
+    ![Evidência de teste all_papers do Projeto DEV WtranS](Documentos/teste/allpapers-dev.png?raw=true "Title")
+    
+    
+ - papers_by_conference.lp - WTRANS13
+ 
+    - Versão Original:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS13 do Projeto Original WtranS](Documentos/teste/wtrans13-original.png?raw=true "Title")
+    
+    - Versão DEV:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS13 do Projeto DEV WtranS](Documentos/teste/wtrans13-dev.png?raw=true "Title")
+    
+  
+  - papers_by_conference.lp - WTRANS14
+  
+    - Versão Original:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS14 do Projeto Original WtranS](Documentos/teste/wtrans14-original.png?raw=true "Title")
+    
+    - Versão DEV:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS14 do Projeto DEV WtranS](Documentos/teste/wtrans14-dev.png?raw=true "Title")
+
+
+- papers_by_conference.lp - WTRANS15
+
+    - Versão Original:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS15 do Projeto Original WtranS](Documentos/teste/wtrans15-original.png?raw=true "Title")
+    
+    - Versão DEV:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS15 do Projeto DEV WtranS](Documentos/teste/wtrans15-dev.png?raw=true "Title")
+    
+
+- papers_by_conference.lp - WTRANS16
+ 
+    - Versão Original:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS16 do Projeto Original WtranS](Documentos/teste/wtrans16-original.png?raw=true "Title")
+    
+    - Versão DEV:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS16 do Projeto DEV WtranS](Documentos/teste/wtrans16-dev.png?raw=true "Title")
+
+
+- papers_by_conference.lp - WTRANS17
+ 
+    - Versão Original:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS17 do Projeto Original WtranS](Documentos/teste/wtrans17-original.png?raw=true "Title")
+    
+    - Versão DEV:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS17 do Projeto DEV WtranS](Documentos/teste/wtrans17-dev.png?raw=true "Title")
+    
+
+- papers_by_conference.lp - WTRANS18
+ 
+    - Versão Original:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS18 do Projeto Original WtranS](Documentos/teste/wtrans18-original.png?raw=true "Title")
+    
+    - Versão DEV:
+    
+    ![Evidência de teste papers_by_conference.lp - WTRANS18 do Projeto DEV WtranS](Documentos/teste/wtrans18-dev.png?raw=true "Title")
+    
+
+- papers_cited.lp
+ 
+    - Versão Original:
+    
+    ![Evidência de teste papers_cited.lp do Projeto Original WtranS](Documentos/teste/paperscited-original.png?raw=true "Title")
+    
+    - Versão DEV:
+    
+    ![Evidência de teste papers_cited.lp do Projeto DEV WtranS](Documentos/teste/paperscited-dev.png?raw=true "Title")
